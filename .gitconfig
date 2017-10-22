@@ -1,3 +1,7 @@
+[user]
+	name = Melvillian
+    email = melvillevt@gmail.com
+	signingkey = 5F1178CDD43A49E910D6D27C773AE36E3704569C
 [core]
 	editor = vim
 [merge]
