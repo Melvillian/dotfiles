@@ -1,1 +1,28 @@
-/Users/alex/.gitconfig
+[core]
+	editor = vim
+[merge]
+	tool = kdiff
+	conflictstyle = diff3
+[alias]
+	last = log -1 HEAD
+	co = checkout
+	s = status
+	b = branch
+    cp = cherry-pick
+    cb = checkout -b
+    d = diff --color-words
+    m = merge
+    p = push
+    st = stash
+    cm = commit
+[merg]
+	tool = opendiff
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[push]
+	default = simple
+[commit]
+	gpgsign = true
+[include]
+        path = ~/.gitconfig.local

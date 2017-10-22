@@ -1,1 +1,33 @@
-/Users/alex/.vimrc
+set nowrapscan
+set hlsearch        " highlight search matches
+set incsearch       " jump to current first search match
+set mouse=a
+colorscheme badwolf
+syntax enable
+set tabstop=4       " number of visual spaces per TAB
+set softtabstop=4   " number of spaces in tab when editing
+set expandtab       " tabs are spaces
+set number              " show line numbers
+set cursorline          " highlight current line
+set wildmenu            " visual autocomplete for command menu
+
+" replace Escape with jj (this comment is on its own line because imap is finicky)
+imap jj <Esc>
+
+set ruler		    " show the cursor position all the time
+set path+=**        " allow recursive fuzzy finding of files below cwd
+set wildmenu        " display all matching files when we tab complete
+
+" get pathogen vim package manager working
+execute pathogen#infect()
+
+" get ripgrep working with fzf (http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/)
+let g:rg_command = '
+  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+  \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
+  \ -g "!{.git,node_modules,vendor}/*" '
+
+command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+
+" https://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard
+:set clipboard=unnamed " allows pasting into vim (via `p`) using what's stored in the system clipboard
