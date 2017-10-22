@@ -18,22 +18,6 @@ export EDITOR=/usr/bin/vim
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH=/usr/local/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/alex/Servers/tomcat-7.0.40/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/texbin
 
-# set github shortcuts if they haven't already been set
-CONFIG_NOT_SET=$(git config --get alias.co)
-if [ -z "${CONFIG_NOT_SET}" ]; then
-        if [ -z "$1" ]; then
-        echo "Usage: source ~/.bash_profile <GitHub email>"
-        echo -e "\naborting..."
-        return
-    fi
-        git config --global user.name "Alex Melville"
-        git config --global user.email "$1"
-        git config --global alias.co checkout
-        git config --global alias.b branch
-        git config --global alias.ci commit
-        git config --global alias.s status
-fi
-
 export EDITOR=/usr/bin/vim
 
 export PATH=/usr/local/sbin:$PATH
