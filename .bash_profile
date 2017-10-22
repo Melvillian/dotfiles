@@ -67,7 +67,7 @@ alias vimb="vim ~/.bash_profile"
 source /Users/alex/.bashrc
 
 # access .vimrc
-alias vimv="vim ~/.vimrc"
+alias vimv="vim ~/.vim/vimrc"
 
 #### https://github.com/BitGo/bitgo-onboarding/blob/master/Yubikey-SSH.md ####
 
@@ -122,6 +122,10 @@ if [ ! -z "$SSH_TTY" ]; then
     fi
     export SSH_AUTH_SOCK="$HOME/.ssh/agent_sock"
 fi
+
+# don't let tmux override syntax highlighting mechanism
+# https://stackoverflow.com/questions/10158508/lose-vim-colorscheme-in-tmux-mode#10264470
+alias tmux="tmux -2"
 
 # use ripgrep for fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
