@@ -1,3 +1,6 @@
+# git completion
+source ~/.git-completion.bash
+
 # helps with differentiating output of `ls`
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -126,3 +129,5 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 bind -x '"\C-p": vim $(fzf);'
 
+# source any machine-specific configs
+source ~/.bash_profile.local

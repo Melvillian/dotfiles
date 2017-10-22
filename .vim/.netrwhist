@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/usr/local/var/mongodb'
+let g:netrw_dirhist_2='/private/var/folders/tw/xncrwnbj0jlg9rscwvls76d00000gp/T/1481917401732-0'
+let g:netrw_dirhist_3='/Users/alex/Library/LaunchAgents'
+let g:netrw_dirhist_4='/private/var/folders/tw/xncrwnbj0jlg9rscwvls76d00000gp/T/1490387768282-0'
+let g:netrw_dirhist_5='/private/var/folders/tw/xncrwnbj0jlg9rscwvls76d00000gp/T/1490389217563-0'
+let g:netrw_dirhist_6='/Users/alex/dev/lab/web3_stuff'
+let g:netrw_dirhist_7='/Users/alex/dev/bitgod/node_modules/bitgo'
+let g:netrw_dirhist_8='/Users/alex/dev/bitgod/node_modules'
+let g:netrw_dirhist_9='/Users/alex/dev/bitgod/node_modules/bitgo'
