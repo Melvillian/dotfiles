@@ -1,0 +1,3 @@
+[submodule ".vim/bundle/-f"]
+	path = .vim/bundle/-f
+	url = https://github.com/junegunn/fzf
