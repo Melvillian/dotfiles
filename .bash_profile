@@ -29,11 +29,6 @@ export RUST_SRC_PATH=${HOME}/.rustup/toolchains/stable-x86_64-apple-darwin/lib/r
 # Alias for easily copying current directory path to clipboard
 alias getpath='echo -n $PWD|pbcopy|echo "current path copied to clipboard"'
 
-# Alias for my aws box
-alias awssh_micro_playground="ssh -i ~/.ssh/unspendable-unspents-instance.pem ubuntu@ec2-34-213-73-124.us-west-2.compute.amazonaws.com"
-alias awssh_bitcoind_1="ssh -i ~/.ssh/unspendable-unspents-instance.pem ubuntu@ec2-52-27-170-165.us-west-2.compute.amazonaws.com"
-alias awssh_bitcoind_2="ssh -i ~/.ssh/unspendable-unspents-instance.pem ubuntu@ec2-35-164-86-105.us-west-2.compute.amazonaws.com"
-
 export NVM_DIR="/Users/alex/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
@@ -135,3 +130,6 @@ defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 
 # source any machine-specific configs
 source ~/.bash_profile.local
+
+# access machine-specific bash file
+alias vimlocal="vim ~/.bash_profile.local"
