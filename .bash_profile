@@ -1,5 +1,8 @@
-# git completion
-source ~/.git-completion.bash
+if [ -f ~/.git-completion.bash ]
+then
+  # git completion
+  source ~/.git-completion.bash
+fi
 
 # helps with differentiating output of `ls`
 export CLICOLOR=1
@@ -29,21 +32,15 @@ export RUST_SRC_PATH=${HOME}/.rustup/toolchains/stable-x86_64-apple-darwin/lib/r
 # Alias for easily copying current directory path to clipboard
 alias getpath='echo -n $PWD|pbcopy|echo "current path copied to clipboard"'
 
-export NVM_DIR="/Users/alex/.nvm"
+export NVM_DIR="~/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # use rusti from any directory
 alias rusti="rustup run nightly-2016-08-01 ~/.cargo/bin/rusti"
 
-# parity bitcoin
-alias pbitcoin="/Users/alex/Desktop/CodingFolder/parity-bitcoin/target/debug/pbtc"
-
-alias copy_dctrl_fobtap="scp  -i ~/.ssh/unspendable-unspents-instance.pem configuration.js COPYING README.md bountyChecker.js dispense.js fobtap.service index.js package.json tap.js vend.js  ubuntu@ec2-34-213-73-124.us-west-2.compute.amazonaws.com:~/dev/dctrl-fobtap/"
-
 # used to easily source .bash_profile after updating, so I don't have to create a new terminal window
 alias sourceb="source ~/.bash_profile"
 alias vimb="vim ~/.bash_profile"
-source /Users/alex/.bashrc
 
 # access .vimrc
 alias vimv="vim ~/.vim/vimrc"
@@ -112,12 +109,13 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 bind -x '"\C-p": vim $(fzf);'
 
-# Enable Secure Keyboard Entry in Terminal.app
-# See: https://security.stackexchange.com/a/47786/8918
-defaults write com.apple.terminal SecureKeyboardEntry -bool true
+if [ "$(uname)" == "Darwin" ]; then
+  # Enable Secure Keyboard Entry in Terminal.app
+  # See: https://security.stackexchange.com/a/47786/8918
+  defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
-# Enable the automatic update check
-defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
+  # Enable the automatic update check
+  defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
 
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
@@ -131,9 +129,17 @@ defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 # make key presses repeat insanely fast
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
+fi
 
-# source any machine-specific configs
-source ~/.bash_profile.local
+if [ -f ~/.bash_profile.local ]
+then
+  # source any machine-specific configs
+  source ~/.bash_profile.local
+  # access machine-specific bash file
+  alias vimlocal="vim ~/.bash_profile.local"
+fi
 
-# access machine-specific bash file
-alias vimlocal="vim ~/.bash_profile.local"
+if [ -f ~/.bashrc ]
+then
+  source ~/.bashrc
+fi
